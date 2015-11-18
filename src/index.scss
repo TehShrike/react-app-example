@@ -1,0 +1,54 @@
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+          tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-touch-callout: none;
+          touch-callout: none;
+  outline: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*user-select: none;*/
+  background-color: #e4e4e4;
+  font-family: "Helvetica", sans-serif;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  /* Get the content out of the way of the redux debugger */
+  margin-right: 300px;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row;
+}
+
+.flex-row.reverse {
+  flex-flow: row-reverse;
+}
+
+.flex-column {
+  display: flex;
+  flex-flow: column;
+}
+
+.flex-column.reverse {
+  flex-flow: column-reverse;
+}
+
+.flex-fit {
+  flex: auto;
+}
+
+.flex-fit-overflow {
+  /* Setting the flex-basis to 0 prevents overflowing child elements from
+   * expanding this element beyond its container */
+  flex: 1 1 0;
+}

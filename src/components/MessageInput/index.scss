@@ -1,0 +1,12 @@
+.messageInput {
+  border-top: 1px solid #777;
+  height: 42px;
+  flex: none;
+
+  input[type=text] {
+    outline: none;
+    width: calc(100% - 16px);
+    margin: 8px;
+    font-size: 14px;
+  }
+}
