@@ -31,7 +31,7 @@ export default React.createClass({
             { message.text }
           </div>
           <div className={ timeCx }>
-            { new Date(message.creationTime).toString() }
+            { new Date(message.creationTime * 1000).toString() }
           </div>
         </div>
       </div>
