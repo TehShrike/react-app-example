@@ -57,7 +57,7 @@ export default {
           id,
           user,
           text,
-          creationTime: (new Date()).getTime() / 1000,
+          creationTime: Math.round((new Date()).getTime() / 1000),
         };
 
         mockData.push(message);
