@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-// TODO: implement Message
-//import Message from '../Message';
+import Message from '../Message';
 
 import './index.scss';
 
@@ -31,9 +30,7 @@ export default React.createClass({
     if (ids.length > 0) {
       msgs = ids.map(id => {
         const msg = messages[id];
-        // TODO: Use Message here
-        //return <Message { ...msg } key={ id } />
-        return <div/>
+        return <Message { ...msg } key={ id } />
       });
     }
 

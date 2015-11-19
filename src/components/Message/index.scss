@@ -1,0 +1,13 @@
+.message {
+  display: flex;
+  padding: 6px;
+
+  :nth-child(1) {
+    flex-basis: content;
+    padding-right: 15px;
+  }
+
+  :nth-child(2) {
+    flex-grow: 1;
+  }
+}

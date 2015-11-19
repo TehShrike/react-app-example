@@ -12,7 +12,7 @@ export function loadMessages() {
       dispatch(loadedMessages(messages));
     }).catch(error => {
       console.log(error);
-      dispatch(loadingMessagesFailed(err));
+      dispatch(loadingMessagesFailed(error));
     });
   };
 }
