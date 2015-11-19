@@ -21,7 +21,9 @@ export default React.createClass({
 
   render: function() {
     const cx = classNames({
-      'messages': true
+      'messages': true,
+      'flex-column': true,
+      'reverse': true,
     });
 
     const { messages = {} } = this.props;
@@ -31,7 +33,7 @@ export default React.createClass({
       msgs = ids.map(id => {
         const msg = messages[id];
         return <Message { ...msg } key={ id } />
-      });
+      }).reverse();
     }
 
     return (

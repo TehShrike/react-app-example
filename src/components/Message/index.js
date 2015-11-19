@@ -14,13 +14,15 @@ export default React.createClass({
   },
 
   render: function() {
-    const cx = classNames({
+    const messageCx = classNames({
       'message': true
     });
+    const timeCx = classNames({
+      'time': true
+    })
     const message = this.props;
-    console.log('trying to display', message)
     return (
-      <div className={ cx }>
+      <div className={ messageCx }>
         <div>
           { message.user }
         </div>
@@ -28,7 +30,7 @@ export default React.createClass({
           <div>
             { message.text }
           </div>
-          <div>
+          <div className={ timeCx }>
             { new Date(message.creationTime).toString() }
           </div>
         </div>

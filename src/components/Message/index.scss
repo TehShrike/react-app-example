@@ -1,6 +1,8 @@
 .message {
   display: flex;
   padding: 6px;
+  background-color: black;
+  color: #A5A5A5;
 
   :nth-child(1) {
     flex-basis: content;
@@ -9,5 +11,9 @@
 
   :nth-child(2) {
     flex-grow: 1;
+  }
+
+  .time {
+    color: #616161;
   }
 }
