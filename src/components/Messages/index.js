@@ -22,8 +22,6 @@ export default React.createClass({
   render: function() {
     const cx = classNames({
       'messages': true,
-      'flex-column': true,
-      'reverse': true,
     });
 
     const { messages = {} } = this.props;
@@ -31,9 +29,12 @@ export default React.createClass({
     let ids = Object.keys(messages);
     if (ids.length > 0) {
       msgs = ids.map(id => {
-        const msg = messages[id];
-        return <Message { ...msg } key={ id } />
-      }).reverse();
+        return messages[id];
+      }).sort(function(msgA, msgB) {
+        return msgA.creationTime - msgB.creationTime
+      }).map(msg => {
+        return <Message { ...msg } key={ msg.id } />
+      });
     }
 
     return (
