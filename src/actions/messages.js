@@ -3,6 +3,7 @@ import mockAPI from '../utils/mockAPI';
 export const MESSAGES_LOAD_PENDING = 'MESSAGES_LOAD_PENDING';
 export const MESSAGES_LOAD_SUCCESS = 'MESSAGES_LOAD_SUCCESS';
 export const MESSAGES_LOAD_FAILURE = 'MESSAGES_LOAD_FAILURE';
+export const MESSAGES_ADD = 'MESSAGES_ADD';
 
 // Entry point action for loading messages
 export function loadMessages() {
@@ -15,6 +16,14 @@ export function loadMessages() {
       dispatch(loadingMessagesFailed(error));
     });
   };
+}
+
+export function sendMessage(text) {
+  return (dispatch, getState) => {
+    mockAPI.sendMessage(getState().username, text).then(message => {
+      dispatch(addMessage(message))
+    })
+  }
 }
 
 // Set loading messages state to pending
@@ -39,4 +48,11 @@ export function loadingMessagesFailed(error) {
     type: MESSAGES_LOAD_FAILURE,
     error,
   };
+}
+
+export function addMessage(message) {
+  return {
+    type: MESSAGES_ADD,
+    message: message
+  }
 }

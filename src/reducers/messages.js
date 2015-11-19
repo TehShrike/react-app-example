@@ -2,6 +2,7 @@ import {
   MESSAGES_LOAD_PENDING,
   MESSAGES_LOAD_SUCCESS,
   MESSAGES_LOAD_FAILURE,
+  MESSAGES_ADD
 } from '../actions/messages';
 
 
@@ -42,6 +43,14 @@ export default function channelMessages(state = defaultChannelMessageState, acti
         messagesPending: false,
         messagesError: action.error
       };
+    case MESSAGES_ADD:
+      return {
+        ...state,
+        messages: {
+          ...state.messages,
+          [action.message.id]: action.message
+        }
+      }
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Messages from '../Messages';
 import MessageInput from '../MessageInput';
 
-import { loadMessages } from '../../actions/messages';
+import { loadMessages, sendMessage } from '../../actions/messages';
 
 import './index.scss';
 
@@ -24,16 +24,22 @@ const Channel = React.createClass({
   },
 
   render: function() {
-    const { messages } = this.props;
+    const { messages, dispatch } = this.props;
     const cx = classNames({
       'channel': true,
       'flex-column': true,
     });
 
+    function submit(text) {
+      if (text) {
+        dispatch(sendMessage(text))
+      }
+    }
+
     return (
       <div className={ cx }>
         <Messages messages={ messages } />
-        <MessageInput />
+        <MessageInput submitHandler={ submit } />
       </div>
     );
   }
